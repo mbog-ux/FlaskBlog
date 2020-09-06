@@ -5,7 +5,7 @@
 	<img class="article-img rounded-circle mx-3 mt-3" src="{{ img_file }}" alt="image">
 	<div class='media-body'>
 		<div class='border-bottom mr-5 mt-3'>
-			<a href="{{ url_for('account') }}"> {{ current_user.username }} </a>
+			<a href="{{ url_for('users.account') }}"> {{ current_user.username }} </a>
 			<small class='text-muted'> {{ current_user.email }} </small>
 		</div>
 		<div class='article-content'>

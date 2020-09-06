@@ -45,12 +45,12 @@
 	</div>
 	<div class='container'>
 			<small>
-			<a class = 'link' href=" {{ url_for('send_reset_token')}}">  Forget Password? </a>
+			<a class = 'link' href=" {{ url_for('users.send_reset_token')}}">  Forget Password? </a>
 			</small>
 	</div>
 	<div class='container'>
 			<small class='text-muted'> Don`t have an account?
-			<a class = 'link' href=" {{ url_for('register')}}"> Join us now! </a>
+			<a class = 'link' href=" {{ url_for('users.register')}}"> Join us now! </a>
 			</small>
 	</div>
 {% endblock content %}
