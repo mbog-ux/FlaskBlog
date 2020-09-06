@@ -1,0 +1,27 @@
+.site-header{
+	background-color:blue;
+}
+
+.bg-steel {
+	background-color: #5f788a;
+}
+
+.navbar-light {
+	color:white;
+}
+
+
+.article-img {
+	width:125px;
+	height:125px;
+}
+
+.custom-border{
+	border: 1px solid;
+	border-radius:2rem;
+	border-color: #DCDCDC
+}
+
+p {
+	font-size:0.75rem;
+}

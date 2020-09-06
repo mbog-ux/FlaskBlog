@@ -1,0 +1,14 @@
+1.  {{ form.hidden_tag() }}
+
+    Otherwise form wont be submitted
+
+2. <form class='' method='POST'
+enctype="multipart/form-data>"
+
+    POST to submit ruquest
+    VERY IMPORTANT TO ADD enctype if you submit picture
+3. Pagination is important
+
+4.   {url_for('reset_password',token=user.get_reset_token(),_external=True)}
+
+_external is important

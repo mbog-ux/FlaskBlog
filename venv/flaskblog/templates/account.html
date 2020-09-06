@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class='media custom-border'>
+	<img class="article-img rounded-circle mx-3 mt-3" src="{{ img_file }}" alt="image">
+	<div class='media-body'>
+		<div class='border-bottom mr-5 mt-3'>
+			<a href="{{ url_for('account') }}"> {{ current_user.username }} </a>
+			<small class='text-muted'> {{ current_user.email }} </small>
+		</div>
+		<div class='article-content'>
+			<h5 class='mt-2'> About </h5>
+			<p class = 'mr-3 mr-3'>
+				It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like
+			</p>
+		</div>
+	</div>
+</div>
+
+<legend> {{ legend }} </legend>
+<div class='container border rounded'>
+	<form class='m-2' method = 'POST' enctype="multipart/form-data">
+		{{ form.hidden_tag()}}
+		<div class='form-group'>
+				{{ form.username.label(class='form-control-label') }}
+				{% if form.username.errors %}
+				{{ form.username(class='form-control form-control-lg is-invalid') }}
+					<div class="invalid-feedback">
+						{% for error in form.username.errors %}
+							{{ error }}
+						{% endfor %}
+					</div>
+				{% else %}
+				    {{ form.username(class='form-control form-control-lg') }}
+				{% endif %}
+		</div>
+
+		<div class='form-group'>
+				{{ form.email.label(class='form-control-label') }}
+				{% if form.email.errors %}
+				{{ form.email(class='form-control form-control-lg is-invalid') }}
+					<div class="invalid-feedback">
+						{% for error in form.email.errors %}
+							{{ error }}
+						{% endfor %}
+					</div>
+				{% else %}
+				    {{ form.email(class='form-control form-control-lg') }}
+				{% endif %}
+		</div>
+
+            <div class="form-group">
+                {{ form.picture.label()}}
+                {{ form.picture(class =('form-control-file'))}}
+                {% if form.picture.errors %}
+                    {% for error in form.picture.errors %}
+                        <span class="text-danger"> {{ error }}</span><br>
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+
+		<div class='form-group mt-3'>
+			<div class='form-group mt-3'>
+				{{ form.submit(class='btn btn-outline-info') }}
+			</div>
+		</div>
+	</form>
+</div>
+
+{% endblock content %}

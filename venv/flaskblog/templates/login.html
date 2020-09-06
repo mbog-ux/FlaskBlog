@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+	<div class='container border rounded'>
+		<form class='m-3' method="POST" action="">
+		{{ form.hidden_tag() }}
+		<legend class='border-bottom'> {{ legend }} </legend>
+
+			<div class='form-group'>
+				{{ form.email.label(class='form-control-label') }}
+				{% if form.email.errors %}
+					{{ form.email(class='form-control form-control-lg is-invalid') }}
+					<div class="invalid-feedback">
+					{% for error in form.email.errors %}
+						{{ error }}
+					{% endfor %}
+					</div>
+				{% else %}
+					{{ form.email(class='form-control form-control-lg') }}
+				{% endif %}
+			</div>
+			<div class='form-group'>
+				{{ form.password.label(class='form-control-label') }}
+				{% if form.password.errors %}
+					{{ form.password(class='form-control form-control-lg is-invalid') }}
+					<div class="invalid-feedback">
+					{% for error in form.password.errors %}
+						{{ error }}
+					{% endfor %}
+					</div>
+				{% else %}
+					{{ form.password(class='form-control form-control-lg') }}
+				{% endif %}
+			</div>
+			<div class='form-check-inline'>
+				{{ form.remember_me(class='form-check-input')}}
+				{{ form.remember_me.label(class='form-check-label')}}
+			</div>
+			<div class='form-group mt-3'>
+
+				{{ form.submit(class='btn btn-outline-primary') }}
+
+			</div>
+		</form>
+	</div>
+	<div class='container'>
+			<small>
+			<a class = 'link' href=" {{ url_for('send_reset_token')}}">  Forget Password? </a>
+			</small>
+	</div>
+	<div class='container'>
+			<small class='text-muted'> Don`t have an account?
+			<a class = 'link' href=" {{ url_for('register')}}"> Join us now! </a>
+			</small>
+	</div>
+{% endblock content %}
